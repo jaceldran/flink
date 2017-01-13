@@ -1,0 +1,57 @@
+
+// namespace
+$namespace: flink;
+
+// logo rgb and hex colors
+$color-blue: 88, 133, 156, #58859c;
+$color-green: 145, 194, 49, #91c231;
+$color-red: 209, 25, 25, #d11919;
+$blue: nth($color-blue, 4);
+$green: nth($color-green, 4);
+$red: nth($color-red, 4);
+
+// break points
+$width-small: 768px;
+$width-medium: 900px;
+
+// gutters and borders
+$gutter-default: 15px;
+$gutter-medium: 10px;
+$border-default: 1px solid rgba(0,0,0,.1);
+$border-rule: 1px dotted rgba(0,0,0,.3);
+
+// modale
+$modale-background: #fff;
+$modale-color: #333;
+$modale-font: sans-serif;
+$modale-font-size: large;
+
+// modale > header
+$header-background: transparent;
+$header-height: 50px;;
+
+// modale > header|footer > name
+$name-background: transparent;
+$name-color: inherit;
+
+// modale menu
+$menu-background: #f3f3f3;
+$menu-link-color: $blue;
+$menu-link-color-hover: #fff;
+$menu-link-background-hover: $blue;
+
+// modale > footer
+$footer-background: transparent;
+$footer-height: 50px;
+
+// headings
+//$rgb: $color-green; 
+/*$h1-background: $blue;
+$h1-color: #fff;
+//$h2-background: rgba-background($color-blue, .5);
+$h2-color: #fff;
+$h3-background: $red;
+$h3-color: #fff;*/
+
+// prompt
+$prompt-color: $menu-link-color;

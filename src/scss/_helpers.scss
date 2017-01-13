@@ -1,0 +1,63 @@
+
+// helpers
+
+.frame.#{$namespace} {
+
+	// horizontal and vertical align
+	& .splash {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);		
+		&.alert {
+			padding: 10px;
+			border: $border-default;
+			box-shadow: 1px 1px 5px rgba(0,0,0,.6);	
+		}
+	}
+
+
+	& .count {
+		border: 0px solid #333;
+		border-radius: 50%;	
+		background-color: #333;
+		font-weight: bold;	
+		color: #fff;
+		min-width: 1.7em;
+		height: 1.7em;
+		font-size: 80%;	
+		display: inline-flex;
+		line-height: 1.5em;
+		justify-content: center;
+			&.small {
+			font-size: 70%;
+			line-height: 1.15;
+			}
+	}
+
+	& button.icon-burger {
+		border: 0;
+		background-color: transparent;
+		width: 32px;
+		height: 32px;
+		display: inline-block;
+		margin: 0 4px;
+		padding: 0 4px;
+		cursor: pointer;
+		&:before {
+			content: '';
+			display: block;
+			border: 1px solid #333;
+			border-width: 5px 0;
+			padding-bottom: 2px;			
+		}
+		&:after {
+			content: '';
+			display: block;
+			border: 1px solid #333;
+			border-width: 5px 0 0 0;
+			margin-top: 2px;
+		}
+	}
+
+}	

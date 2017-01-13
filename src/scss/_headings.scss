@@ -1,0 +1,51 @@
+
+
+
+.#{$namespace}.frame {
+
+	& > .modale  {
+
+		& > .main {
+
+			& h1, & h1.#{$namespace} {
+				@include background-opacity($color-blue,1);
+				padding: $gutter-medium;
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: normal;
+			}
+
+			& h2, & h2.#{$namespace} {
+				@include background-opacity($color-blue,.8);
+				padding: $gutter-medium;
+				color: #fff;
+			}
+
+			& h3, & h3.#{$namespace} {
+				@include background-opacity($color-blue,.6);
+				padding: $gutter-medium;
+				color: #fff;
+			}
+			& h4, & h4.#{$namespace} {
+				//@include background-opacity($color-green,.6);
+				padding: $gutter-medium;
+				color: $blue;
+				font-size: large;
+			}
+			& h5, & h5.#{$namespace} {
+				//@include background-opacity($color-green,.6);
+				padding: $gutter-medium;
+				color: $blue;
+				font-size: medium;
+			}
+			& h6, & h6.#{$namespace} {
+				//@include background-opacity($color-green,.6);
+				padding: $gutter-medium;
+				color: $blue;
+				font-size: small;
+			}	
+		}
+
+	}
+
+}

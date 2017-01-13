@@ -1,0 +1,34 @@
+.#{$namespace} > .modale > .main table {
+
+	border-collapse: collapse;
+	width: 100%;
+
+	& caption {
+		font-weight: bold;
+		text-align: left;
+		padding: $gutter-medium;
+		color: #fff;
+		@include background-opacity($color-blue,.8);
+	}
+
+	& th {
+		text-align: left;
+		padding: $gutter-medium;
+		border-bottom: $border-default;
+		background-color: transparent;
+	}
+
+	& td {
+		padding: $gutter-medium;
+		border-bottom: $border-default;
+	}
+
+	& td.wauto, & th.wauto {
+		width: 1%;
+		white-space: nowrap;
+	}
+
+	& .center {
+		text-align: center;
+	}
+}

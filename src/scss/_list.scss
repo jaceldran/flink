@@ -1,0 +1,32 @@
+
+.#{$namespace} {
+
+	& > .modale  {
+
+		& > .main {
+
+			& ul, & ol {
+				padding: 0 0 0 $gutter-default*3;
+				margin: $gutter-default 0;
+				//@include background-opacity ($color-green,.3);
+			} 
+
+			& dl {
+				padding: 0 0 0 ($gutter-default*2);
+
+				& dt {
+					font-weight: bold;
+					margin: $gutter-medium 0 0 0;					
+				}
+
+				//& dd {
+				//	margin-left: $gutter-default*3;
+				//}
+
+			}
+
+		}
+
+	}
+
+}

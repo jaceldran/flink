@@ -1,0 +1,82 @@
+
+.#{$namespace} .main form {
+
+	& > section {
+		//margin: $gutter-default 0;
+	}
+
+	& .control {
+		padding: $gutter-default;
+	}
+
+	& > fieldset {
+		margin: $gutter-default;		
+		border: $border-default;
+		padding: $gutter-medium;
+
+			& legend {
+				font-weight: bold;
+				margin: 0 $gutter-default;
+			}
+	}
+
+	& input:not([type=checkbox]):not([type=reset]):not([type=submit]):not([type=button]):not([type=radio]):not([type=color])
+		, & select, & textarea {
+		cursor: pointer;
+		border: 1px solid rgba(0,0,0,.15);
+		padding: 10px;
+		width: 100%;
+	}
+
+	& label {
+		display: block;
+		font-weight: bold;
+		margin: $gutter-medium/2 0;		
+	}
+
+	& button, input[type=button], input[type=submit], input[type=reset], .button {
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;	
+		width: auto;
+		padding: 0 $gutter-default*2;
+		line-height: $gutter-default*3;
+		border: 1px solid rgba(0,0,0,.15);
+	}
+
+}
+
+
+/*@media (min-width: $width-small) {
+	.#{$namespace} .main form {
+		& > section {
+			margin: $gutter-default;
+			&.inline {				
+				display: flex;
+				& .control {
+					flex-grow: 1;					
+					margin-right: 10px;
+					&:last-child {
+						margin-right: 0;
+					}
+				}			
+			}
+			&.footer {
+				margin: $gutter-default;
+			}
+		}
+	}
+}*/
+
+/*@media (min-width: $width-medium) {
+	.#{$namespace} .main form {
+		& > section {
+			margin: $gutter-default 0;
+			&.footer {
+				margin: $gutter-default 0;
+			}
+		}
+	}
+}*/
+

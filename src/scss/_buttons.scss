@@ -1,0 +1,51 @@
+
+// frame buttons close, maximize...
+
+// unicode hamburguer menu "\2630";//
+
+.#{$namespace}  .header {
+
+	// buttons group close, maximize...
+	& .frame-buttons {
+		display: inline-flex;
+		align-items: flex-start;
+
+		& button {
+			background-color: transparent;
+			text-align: center;
+			padding: 0 $gutter-medium;
+			cursor: pointer;
+
+			&.frame-maximize {
+				&:before {
+					content: "\1F5D6";
+					font-size: 16px;					
+				}
+			}
+
+			&.frame-overlap {
+				&:before {
+					content: "\1F5D7";
+					font-size: 16px;					
+				}
+			}
+
+			&.frame-minimize {
+				&:before {
+					content: "\1F5D5";
+					font-size: 16px;					
+				}
+			}
+
+			&.frame-close {
+				&:before {
+					content: "\00D7";
+					font-size: 25px;
+				}
+			}
+
+
+		}
+	}
+
+}

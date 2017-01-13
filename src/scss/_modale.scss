@@ -1,0 +1,94 @@
+.#{$namespace}  {
+
+	& > .modale {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		bottom: 0%;
+		right: 0%;
+		overflow: hidden;
+		font-family: $modale-font;
+		font-size: $modale-font-size;
+		background-color: $modale-background;
+		color: $modale-color;		
+
+		& > .header {
+			overflow: hidden;
+			border-bottom: $border-default;
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: $header-height;
+			box-shadow: 0 0 10px rgba(0,0,0,.15);	
+		}
+
+		& > .main  {
+			border: 0;
+			overflow: auto;
+			position: absolute;
+			left: 0px;
+			top: 50px;
+			bottom: 50px;
+			right: 0px;
+			width: 100%;			 
+
+			&.no-header {
+				top: 0;
+			}
+
+			&.no-footer {
+				bottom: 0px;
+			}		
+		}		
+
+		& > .footer {
+			overflow: hidden;
+			border-top: $border-default;
+			position: absolute;
+			display: flex;
+			left: 0;
+			bottom: 0;
+			right: 0;			
+			justify-content: space-between;
+			align-items: center;
+			height: $footer-height;
+			box-shadow: 0 0 10px rgba(0,0,0,.15);	
+		}
+
+	}
+	
+}
+
+@media (min-width: 768px) {
+
+	.#{$namespace} {
+
+		& > .modale {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			height: 90%;
+			width: 90%;
+			max-width: 750px;
+			border: $border-default;			
+		}
+
+	}
+}	
+
+@media (min-width: 1024px) {
+
+	.#{$namespace} {
+
+		& > .modale {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			height: 90%;
+			width: 90%;
+			max-width: 950px;
+			border: $border-default;
+		}
+	}
+}

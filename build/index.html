@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../../demo/css/style.css">	
+	</head>
+
+	<body>
+
+		<header>
+			<div class="container">
+				<h1 id="brand"><a>Flink <span class="status">beta</span></a></h1>
+				<nav id="main-nav">
+					<a href="../../demo" target="_blank">Demo site</a>
+				</nav>
+				<span id="toggle-menu" class="burger-icon"></span>
+			</div>
+		</header>		
+
+		<main>
+			<div class="container">
+				<h2>Build panel</h2>
+				
+				<form class="box">
+					<section>
+						<button type="button" onclick="build()">Build</button>
+						<button type="button" onclick="Flink.open()">Open</button>
+					</section>
+				</form>					
+				
+			</div>
+		</main>
+
+		<!-- dist version LOCAL -->		
+		<script src="../dist/Flink.js"></script>
+		
+
+		<!-- this page funcionality -->
+		<script>
+
+			/*
+			 * start FLink
+			 */
+
+			// vars
+			var paths, resources=[]
+				, preferences=Flink.Preferences.read()
+				, modules=["Summary", "Links", "Forms"];			
+
+			// helper
+			function computePaths(moduleKEY) {
+				return {
+					module: Flink.settings.path.modules
+						+ "/module." + moduleKEY + ".js"
+					, locale: Flink.settings.path.locale 	
+						+ "/locale." + moduleKEY 
+						+ "." + preferences.lang + ".js"
+				};
+			}			
+
+			// compose resources list
+			for (var i=0; i<modules.length; i++) {
+				paths = computePaths(modules[i]);
+				resources.push({type: "module", key: modules[i], path: paths.module });
+				resources.push({type: "locale", key: modules[i], path: paths.locale });
+			}
+
+			// go
+			Flink.start({open: true});
+			Flink.load(resources);
+
+			/*
+			 * build distribution version
+			 */ 
+
+			function build() {
+				Flink.request({
+					url: "dist.php"
+					, success: function(response) {
+						location.href = location.href;
+					}
+				});
+			}
+
+		</script>
+
+	</body>
+
+</html>

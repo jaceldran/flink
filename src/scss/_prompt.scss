@@ -1,0 +1,17 @@
+
+// prompt messages
+
+.frame.#{$namespace}  {
+
+	& .prompt {
+		padding: $gutter-medium;
+		color: $prompt-color;		
+	}
+
+	& .breadcrumb  span {
+
+		font-weight: bold;
+
+	}
+
+}

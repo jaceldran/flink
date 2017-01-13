@@ -1,0 +1,27 @@
+.#{$namespace} {
+
+
+
+	& figure {
+
+		display: table;
+		position: relative;
+		margin: 0 auto;
+		border-collapse: collapse;
+		border: $border-default;
+		box-shadow: 0 0 10px rgba(0,0,0,.15);
+		
+		& img {						
+			display: block;
+			margin: 0 auto;			
+		}
+
+		& figcaption {
+			display: block;
+			@include background-opacity($color-blue,.3);
+			padding: $gutter-medium;
+		}
+
+	}
+
+}

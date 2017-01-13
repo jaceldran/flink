@@ -1,0 +1,95 @@
+// menu panel
+.frame > .modale > .menu {
+
+	// comun panel right|left (contenedor de elements, que es lo que se posiciona)
+	position: absolute;
+	top: 0;
+	bottom: 0;	
+	width: 40%;	
+
+	// estilos comunes para links y headers
+
+	& a {
+		cursor: pointer;
+		color: $menu-link-color;
+		display: block;
+		line-height: $header-height;
+		padding: 0 $gutter-default;
+		text-decoration: none;
+
+		&:hover {
+			//background-color: rgba(255,255,255,.75);
+			color: $menu-link-color-hover;
+			background-color: $menu-link-background-hover;
+		}
+	}
+
+	& .header {
+		line-height: $header-height;
+		padding: 0 $gutter-default;
+		border-bottom: $border-default;
+		font-weight: bold;
+	}
+
+	// positioning
+
+	&.left {
+
+		left: 0px;
+
+		&.top {
+			top: $header-height;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;			
+		}
+
+		&.bottom {
+			top: $header-height;
+			bottom: $footer-height;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;			
+		}
+
+		& > .elements {
+			background-color: $menu-background;	
+			box-shadow: 0 0 10px rgba(0,0,0,.15);			
+			overflow: auto;
+		}
+	}
+
+
+
+	&.right {
+
+		right: 0px;
+
+		&.top {
+			top: $header-height;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;			
+		}
+
+		&.bottom {
+			top: $header-height;
+			bottom: $footer-height;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;			
+		}
+
+		& > .elements {
+			background-color: $menu-background;
+			box-shadow: 0 0 10px rgba(0,0,0,.15);			
+			overflow: auto;
+
+			& > .header {
+				//display: none;
+			}
+		}
+	}
+
+
+}

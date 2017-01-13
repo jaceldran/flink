@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>CSS samples</title>	
+	<link rel="stylesheet" href="../css/style.core.css">
+</head>
+
+<body>
+
+<div class="flink frame"> <!-- <flink> -->
+	
+	<div class="flink overlay"></div> <!-- <overlay> -->
+	
+	<div class="flink modale"> <!-- <modale> -->
+
+		<!-- header -->
+		<div class="flink header">
+			<div class="flink name">FLINK <span class="status">beta</span></div>
+			<div class="flink buttons">
+				<button class="flink call maximize"></button>
+				<button class="flink call close" data-call="Close"></button>
+			</div>
+		</div>
+
+		<!-- main -->
+		<div class="flink main" id="flink-main">
+			<h1>templates/start.html</h1>
+			<div class="splash">
+				contenido para la página de inicio por defecto
+			</div>
+		</div>
+
+		<!-- footer -->
+		<div class="flink footer">
+			<div id="frame-528-prompt" class="flink prompt"></div>
+			<button class="flink call menu icon-burger" data-call="Menu"></button>
+		</div>
+		
+		<nav class="menu bottom right" style="visibility: hidden;">
+			<div class="elements">
+				<div class="flink header">Menú</div>
+				<a class="flink call">Preferencias</a>
+				<a class="flink call">Enlaces</a>
+				<a class="flink call">Resumen</a>
+				<a class="flink call">Formularios</a>
+			</div>
+		</nav>
+
+	</div> <!-- </modale> -->
+
+</div>
+
+
+<script type="text/javascript">
+
+
+	/*
+	 * ajax requests
+	 */
+	function request(params)
+	{
+		var xmlhttp, key, args = {
+			method: "GET"
+			, url: "", async: true
+			, user: null, pass: null
+			, success: function() {}
+		};
+		for (key in args) {
+			if (params[key]) {
+				args[key] = params[key];
+			}
+		}
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		} else { // old school browsers
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			var states = ["pending","connection"
+				,"received","processing","finished"];
+
+			if(this.readyState===4) {
+				if (this.status===200) {
+					if (args.success) {
+						args.success(this.response, this);
+					}
+				} else {
+					if (args.error) {
+						args.error(this);
+					}
+				}
+			}
+		};  
+		xmlhttp.open(args.method, args.url, args.async, args.user, args.pass);
+		xmlhttp.send();
+	}
+
+
+	request({
+		url: "kitchen-sink.html"
+		, success: function(response){
+			document.getElementById("flink-main").innerHTML = response;
+		}
+	});
+
+</script>
+
+</body>
+
+</html>

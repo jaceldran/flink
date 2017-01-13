@@ -1,0 +1,20 @@
+
+@mixin reset-border {
+	border: 0;
+}
+
+@mixin reset-margin {
+	margin: 0;
+}
+
+@mixin reset-padding {
+	padding: 0;
+}
+
+
+@mixin background-opacity($color, $opacity) {	
+	$r: nth($color, 1);
+	$g: nth($color, 2);
+	$b: nth($color, 3);	
+	background-color: rgba($r, $g, $b, $opacity);
+}
