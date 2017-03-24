@@ -1,13 +1,13 @@
-/*
+/**
  * Forms
  */
 var Module = (function(){	
-	/*
+	/**
 	 * globals
 	 */
 	var moduleKEY = "Forms", ready, forms, namespace, Say, TColumns, Render;
 
-	/*
+	/**
 	 * call
 	 */
 	function call()
@@ -20,16 +20,19 @@ var Module = (function(){
 		showNavigation();
 	}
 	
-	/*
+	/**
 	 * events
+	 * @param object|string event
+	 * @param object element
 	 */
 	function on(event, element)
 	{
 
 	}
 
-	/*
-	 * show render of forms navigation as main content.
+	/**
+	 * show render of forms navigation as main content
+	 * @param integer index
 	 */
 	function showNavigation(index)
 	{
@@ -40,8 +43,9 @@ var Module = (function(){
 		});		
 	}
 
-	/*
-	 * show render of elements as main content.
+	/**
+	 * show render of elements as main content
+	 * @param integer index
 	 */
 	function showElements(index)
 	{
@@ -54,6 +58,9 @@ var Module = (function(){
 		});
 	}	
 
+	/**
+	 * readforms
+	 */
 	function readForms()
 	{
 		forms = [];
@@ -65,7 +72,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * compose navigation
 	 * @param {array} collection of forms 
 	 */
@@ -117,7 +124,7 @@ var Module = (function(){
 		return r.join("\n");		
 	}
 
-	/*
+	/**
 	 * compose elements form
 	 * @param {object} form element.
 	 */
@@ -177,9 +184,9 @@ var Module = (function(){
 		return r.join("\n");
 	}
 
-	/*
+	/**
 	 * find label of input element 
-	 * @param {object} form element.
+	 * @param object form element.
 	 */
 	function findLabel (element) 
 	{		
@@ -207,9 +214,9 @@ var Module = (function(){
 		return label;
 	};
 
-	/*
+	/**
 	 * get css selectors of object
-	 * @return {string} className attribute. 
+	 * @return object object
 	 */
 	function selectors(object)
 	{
@@ -226,7 +233,7 @@ var Module = (function(){
 		return css;	
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

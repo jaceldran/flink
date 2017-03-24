@@ -1,4 +1,4 @@
-/*
+/**
  * Preferences
  */
 var Module = (function(){	
@@ -6,7 +6,7 @@ var Module = (function(){
 	var moduleKEY="Preferences", Say, Render, content, form
 	, defaults = {lang:"es-ES", start:""};
 
-	/*
+	/**
 	 * call
 	 */
 	function call()
@@ -19,7 +19,7 @@ var Module = (function(){
 		loadForm();
 	}
 
-	/* 
+	/**
 	 * load options and default values to the form.
 	 */
 	function loadForm()
@@ -74,8 +74,10 @@ var Module = (function(){
 		});
 	}
 
-	/*
+	/**
 	 * load options to a select|radio|checkbox element
+	 * @param object object
+	 * @param array values
 	 */
 	function loadSelect(object, values) {
 		var o;	
@@ -93,7 +95,7 @@ var Module = (function(){
 	}
 
 
-	/*
+	/**
 	 * load form with current preferences
 	 */
 	function loadValues()
@@ -112,8 +114,9 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * allow add values in settings.design.actions
+	 * @param string key
 	 */
 	function addAction(key)
 	{
@@ -125,9 +128,9 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * apply to context
-	 * @param {object} args
+	 * @param object args
 	 */
 	function apply(args)
 	{	
@@ -147,7 +150,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * read preferences form localStorage
 	 */
 	function read()
@@ -163,8 +166,9 @@ var Module = (function(){
 		return preferences;
 	}
 
-	/*
+	/**
 	 * save current context settings to localStorage
+	 * @param object preferences
 	 */
 	function save(preferences)
 	{
@@ -175,8 +179,9 @@ var Module = (function(){
 		Flink.tell(moduleKEY+".save");
 	}
 
-	/*
+	/**
 	 * on
+	 * @param string event
 	 */
 	function on(event)
 	{
@@ -191,7 +196,7 @@ var Module = (function(){
 		console.log("preferences.on >", event);
 	}
 
-	/*
+	/**
 	 * reset|delete
 	 */
 	function reset()
@@ -200,7 +205,7 @@ var Module = (function(){
 	}
 
 
-	/*
+	/**
 	 * export
 	 */
 	return {

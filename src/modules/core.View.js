@@ -1,13 +1,13 @@
-/*
+/**
  * View utilities for render.
  */
 var Module = (function(){
 
 	var moduleKEY = "View", Say;
 
-	/*
+	/**
 	 * load (template )
-	 * @param {object} {<args.template>, [<args.object>]}
+	 * @param object {<args.template>, [<args.object>]}
 	 */
 	function load(args)
 	{
@@ -25,11 +25,11 @@ var Module = (function(){
 		})
 	}
 
-	/*
+	/**
 	 * Utility for render a object using a template.
-	 * @param {object} object The objecto to render.
-	 * @param {string} template The template for render object.
-	 * @return {string} Object rendered with template.
+	 * @param object object The objecto to render.
+	 * @param string template The template for render object.
+	 * @return string Object rendered with template.
  	 */
 	var renderObject = function (object, template) {
 		var key, mark, content = template;
@@ -41,10 +41,10 @@ var Module = (function(){
 		return content;
 	};
 
-	/*
+	/**
 	 * Utility for building templates row-header based on columns configuration.
-	 * @param {object} columns Columns configuration.
-	 * @return {object} Template object {
+	 * @param object columns Columns configuration.
+	 * @return object Template object {
 	 * 		headers:<template.header>
 	 * 		, row:<template-row>
 	 * }
@@ -87,7 +87,7 @@ var Module = (function(){
 		}
 	}	
 
-	/*
+	/**
 	 * export
 	 */
 	return {

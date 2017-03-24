@@ -1,17 +1,17 @@
-/*
+/**
  * Menu
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars
 	 */
 	var moduleKEY = "Menu", config, container, elements;
 
-	/*
+	/**
 	 * call
-	 * @param {string} method
-	 * @param {array} args
+	 * @param string method
+	 * @param array args
 	 */
 	function call(method, args)
 	{		
@@ -21,7 +21,7 @@ var Module = (function(){
 		on("click");
 	}
 
-	/*
+	/**
 	 * refresh
 	 */
 	function refresh()
@@ -33,7 +33,7 @@ var Module = (function(){
 		toggle("hidden");
 	}
 
-	/*
+	/**
 	 * build
 	 */	
 	function build()
@@ -84,9 +84,9 @@ var Module = (function(){
 		})
 	}
 
-	/*
+	/**
 	 * toggle visibility
-	 * @param {string} visibility Ensure visibilite to this value.
+	 * @param string visibility Ensure visibilite to this value.
 	 */
 	function toggle(visibility)
 	{
@@ -97,8 +97,9 @@ var Module = (function(){
 		container.style.visibility = visibility;
 	}
 
-	/*
+	/**
 	 * addElement
+	 * @param object element
 	 */
 	function addElement(element)
 	{	
@@ -106,9 +107,10 @@ var Module = (function(){
 		refresh();
 	}
 
-	/*
+	/**
 	 * events
-	 * @param {string} event
+	 * @param string event
+	 * @param object element
 	 */
 	function on(event, element)
 	{
@@ -121,7 +123,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

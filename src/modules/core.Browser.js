@@ -1,12 +1,14 @@
-/*
+/**
  * Browser 
  */
 var Module = (function(){
 
 	var moduleKEY = "Browser", iframe, status;
 
-	/*
+	/**
 	 * call
+	 * @param string method
+	 * @param array args
 	 */
 	function call(method, args)
 	{	
@@ -18,8 +20,7 @@ var Module = (function(){
 	}
 
 
-
-	/*
+	/**
 	 * listener function
 	 */
 	function onload()
@@ -27,9 +28,10 @@ var Module = (function(){
 		status.style.display = "none";
 	}
 
-	/*
+	/**
 	 * load
 	 * if from server,  remote resources require CORS header ??? 
+	 * @param string url
 	 */
 	function load(url)
 	{
@@ -48,7 +50,7 @@ var Module = (function(){
 		iframe.src = url;
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

@@ -1,15 +1,15 @@
-/*
+/**
  * Frame
  */
 var Module = (function() {
 
 	var frameID, frame, firstOpen, namespace;
 
-	/*
+	/**
 	 * create element
-	 * @param {string} type of component.
-	 * @param {object} Flink.frame settings.
-	 * @return {object} dom element.
+	 * @param string type of component.
+	 * @param object Flink.frame settings.
+	 * @return object dom element.
 	 */
 	function createElement(settings)
 	{
@@ -96,8 +96,9 @@ var Module = (function() {
 		return element;
 	}
 
-	/* 
+	/** 
 	 * build frame window
+	 * @param object settings
 	 */
 	function build(settings)
 	{	
@@ -177,7 +178,7 @@ var Module = (function() {
 		return frameID;
 	}
 
-	/*
+	/**
 	 * check if frame is visible 
 	 */
 	function isVisible()
@@ -185,15 +186,15 @@ var Module = (function() {
 		return frame.style.display !== "none";
 	}
 
-	/*
+	/**
 	 * open|shows frame
 	 */
-	function show(show)
+	function show()
 	{
 		frame.style.display = "block";
 	}
 
-	/*
+	/**
 	 * close|hides frame
 	 */
 	function hide()
@@ -211,8 +212,11 @@ var Module = (function() {
 		}
 	}
 
-	/*
+	/**
 	 * set content of a component identified by its ID.
+	 * @param string key
+	 * @param string content
+	 * @param string mode
 	 */
 	function setContent (key, content, mode)
 	{
@@ -234,9 +238,10 @@ var Module = (function() {
 		elm.innerHTML = content;
 	}
 
-	/*
+	/**
 	 * compose breadcrumb links and show as prompt.
 	 * usually invoke from Modules.
+	 * @param object args
 	 */
 	function breadCrumb(args)
 	{
@@ -280,8 +285,9 @@ var Module = (function() {
 		Flink.listenClicks();
 	}	
 
-	/*
+	/**
 	 * returns a node element of frame 
+	 * @param string key
 	 */
 	function node(key)
 	{
@@ -289,7 +295,7 @@ var Module = (function() {
 		return document.getElementById(ID);
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

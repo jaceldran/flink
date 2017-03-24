@@ -197,7 +197,7 @@ var Flink = (function(){
 		console.log("flink.eh" /*, err, "action >", action*/ );
 	}
 
-	/*
+	/**
 	 * ajax requests
 	 * 
 	 * @param object params (method, url, async, success, error, user, pass)
@@ -329,7 +329,7 @@ var Flink = (function(){
 	/**
 	 * process keystrokes for show|hide frame
 	 * 
-	 * * @param object event 
+	 * @param object event 
 	 */
 	function keyboardEvent(event)
 	{

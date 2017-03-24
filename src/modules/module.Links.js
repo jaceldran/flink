@@ -1,15 +1,17 @@
-/*
+/**
  * Links
  */
 var Module = (function() {
 
-	/*
+	/**
 	 * global module vars 
 	 */
 	var moduleKEY="Links", ready, Say, Render, TColumns, Prompt;
 
-	/*
+	/**
 	 * call
+	 * @param string method
+	 * @param object args
 	 */
 	function call(method, args)
 	{
@@ -24,8 +26,10 @@ var Module = (function() {
 		});
 	}
 
-	/*
+	/**
 	 * events
+	 * @param object|string event
+	 * @param object|string element
 	 */
 	function on(event, element)
 	{		
@@ -113,7 +117,7 @@ var Module = (function() {
 		return r.join("\n");
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

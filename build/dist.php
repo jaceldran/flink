@@ -1,6 +1,6 @@
 <?php header('content-type:text/plain;charset=utf-8');
 
-/*
+/**
  * src => dist paths
  */
 
@@ -8,7 +8,7 @@ $src = '../src';
 $dist = '../dist';
 $response = ['content'=>'', 'copy'=>[]];
 
-/*
+/**
  * core modules
  */
 $path = "$src/modules"; // './modules';
@@ -19,7 +19,7 @@ foreach($modules as $file) {
 	}
 }
 
-/*
+/**
  * contenido de Flink.js
  * la variable SETTINGS se incrusta dentro de Flink.js
  */ 
@@ -60,7 +60,7 @@ if (file_put_contents("$dist/Flink.js", $content)) {
 	$response['content'] =  $content;
 }
 
-/*
+/**
  * copy target dist
  */
 $move = ['css', 'templates', 'modules', 'locale'];

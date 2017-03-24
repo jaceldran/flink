@@ -1,17 +1,18 @@
-/*
+/**
  * <moduleKEY> 
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars 
 	 */
 	var moduleKEY = "<MODULE-KEY>";
 
-	/*
+	/**
 	 * call
 	 * allow use "method" and "args" if need "callable" actions
 	 * i.e. action = <module>::<method>::<args>
+	 * 
 	 * @param {string} method
 	 * @param {array} args
 	 */
@@ -20,8 +21,9 @@ var Module = (function(){
 
 	}
 
-	/*
+	/**
 	 * events
+	 * 
 	 * @param {string} event Name or type of event
 	 * @param {object} element Usually a clicked element  
 	 */
@@ -41,7 +43,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

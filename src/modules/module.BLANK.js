@@ -3,7 +3,7 @@
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars 
 	 */
 	var moduleKEY = "<MODULE-KEY>";

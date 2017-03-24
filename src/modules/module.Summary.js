@@ -1,19 +1,19 @@
-/*
+/**
  * Summary 
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars 
 	 */
 	var moduleKEY = "Summary";
 
-	/*
+	/**
 	 * call
 	 * use "method" and "args" if need "callable" actions
 	 * i.e. action = <module>::<method>::<args>
-	 * @param {string} method
-	 * @param {array} args
+	 * @param string method
+	 * @param array args
 	 */
 	function call(method, args)
 	{
@@ -28,7 +28,7 @@ var Module = (function(){
 		});		
 	}
 
-	/*
+	/**
 	 * compose content
 	 * TODO: normalize standar method "summary" for all modules
 	 * TODO: use templates 
@@ -75,10 +75,10 @@ var Module = (function(){
 		return r.join("\n");		
 	}
 
-	/*
+	/**
 	 * events
-	 * @param {string} event
-	 * @param {string} element 
+	 * @param string event
+	 * @param string element 
 	 */
 	function on(event, element)
 	{
@@ -103,7 +103,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {

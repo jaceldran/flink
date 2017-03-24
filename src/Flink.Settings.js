@@ -1,5 +1,5 @@
 
-	/*
+	/**
 	 * app settings
 	 */
 	var settings = {};
@@ -69,7 +69,7 @@
 	};
 
 
-	/*
+	/**
 	 * design elements managed in preferences
 	 */
 	settings.design = {

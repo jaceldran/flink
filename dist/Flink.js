@@ -3,7 +3,7 @@
 /*
  * -----------------------------------------------------------------------------
  * Flink [beta]
- * Build: 18/12/16 11:32:35
+ * Build: 24/03/17 13:12:24
  * -----------------------------------------------------------------------------
  *                    _)                    |               
  *  __|   _ \   __ \   |  __ `__ \    _` |  __|   _ \   __| 
@@ -15,7 +15,7 @@
  * -----------------------------------------------------------------------------
  */
 
-/*
+/**
  * Flink
  */
 var Flink = (function(){
@@ -24,7 +24,7 @@ var Flink = (function(){
 
 	var loaded={}, endload, frameID, modules=[], LOG=[], muted;
 	
-	/*
+	/**
 	 * app settings
 	 */
 	var settings = {};
@@ -94,7 +94,7 @@ var Flink = (function(){
 	};
 
 
-	/*
+	/**
 	 * design elements managed in preferences
 	 */
 	settings.design = {
@@ -103,11 +103,14 @@ var Flink = (function(){
 		, actions: ["Preferences"]
 	};
 
-	/*
+	/**
 	 * load resources modules, css, locale, js
+	 * 
+	 * @param object[]
+	 * @param function callback
 	 */
 	function load(resources, callback)
-	{//console.log("load", resources);
+	{
 		var args, obj, i
 		, loader = {
 			module: loadJS, locale: loadJS
@@ -140,9 +143,10 @@ var Flink = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * loads a css file and, if provided, calls callback when loaded.
-	 * @param {object} settings: {path, data, callback}
+	 * 
+	 * @param object settings (path, data, callback)
 	 */
 	function loadCSS(settings)
 	{		
@@ -165,9 +169,10 @@ var Flink = (function(){
 		return document.head.appendChild(element);
 	}
 
-	/*
+	/**
 	 * loads a js file and calls callback when loaded.
-	 * @param {object} settings: {path, data, callback}
+	 * 
+	 * @param object settings (path, data, callback)
 	 */
 	function loadJS(settings)
 	{		
@@ -190,9 +195,10 @@ var Flink = (function(){
 		return document.head.appendChild(script);
 	}	
 
-	/*
+	/**
 	 * ready
-	 * @param {object} event
+	 * 
+	 * @param object event
 	 */
 	function ready(event)
 	{		
@@ -245,8 +251,10 @@ var Flink = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * build
+	 * 
+	 * @param object args (open, start...) 
 	 */
 	function build(args)
 	{
@@ -273,17 +281,21 @@ var Flink = (function(){
 		listenClicks();
 	} 
 
-	/*
+	/**
 	 * exception/error handler
 	 * TODO: thinking...
+	 * 
+	 * @param string err
+	 * @param string action
 	 */
 	function eh(err, action) {
 		console.log("flink.eh" /*, err, "action >", action*/ );
 	}
 
-	/*
+	/**
 	 * ajax requests
-	 * @param {object} params {method, url, async, success, error, user, pass}
+	 * 
+	 * @param object params (method, url, async, success, error, user, pass)
 	 */
 	function request(params)
 	{
@@ -318,10 +330,11 @@ var Flink = (function(){
 		xmlhttp.send();
 	}
 
-	/*
+	/**
 	 * parse action
-	 * actions can be format "<module>::<method>::<arg1>::<arg2>...<argn>"
-	 * @param {string} action
+	 * actions can be format "<module>::<method>::<arg-1>::<arg-2>...<arg-n>"
+	 * 
+	 * @param string action
 	 */
 	function parseAction(action)
 	{		
@@ -335,10 +348,11 @@ var Flink = (function(){
 		return {module: module, method: method, args: args};
 	}
 
-	/*
+	/**
 	 * call action
-	 * @param {string} action can be format "<module>::<method>::<arg1>::<arg2>..."
-	 * @param {object} [optional] can be the element clicked that calls the action  
+	 * 
+	 * @param string action can be format "<module>::<method>::<arg1>::<arg2>..."
+	 * @param object [optional] can be the element clicked that calls the action  
 	 */
 	function call(action, element)
 	{		
@@ -365,9 +379,10 @@ var Flink = (function(){
 		}
 	}
 
-	/*
-	 * mute / unmute
-	 * @param {boolean} status
+	/**
+	 * mute|unmute Flink.tell() method ---POSSIBLY DESCARTED IN THE FUTURE---
+	 * 
+	 * @param boolean status
 	 */
 	function mute(status)
 	{		
@@ -375,10 +390,10 @@ var Flink = (function(){
 		console.log("flink.mute", muted);
 	}
 
-	/*
+	/**
 	 * modules can tell events to Flink so that Flink tells other modules 
-	 * restricted to "non-core" modules (OFF)
-	 * @param {string|object} event 
+	 * 
+	 * @param string|object event 
 	 */
 	function tell(event)
 	{
@@ -392,8 +407,8 @@ var Flink = (function(){
 		}
 	}
 
-	/*
-	 * activate keyboard detection to send events to process method 
+	/**
+	 * activates keyboard detection to send events to process method 
 	 */
 	function listenKeyboard()
 	{			
@@ -406,30 +421,32 @@ var Flink = (function(){
 		});
 	}
 
-	/*
+	/**
 	 * process keystrokes for show|hide frame
+	 * 
+	 * @param object event 
 	 */
 	function keyboardEvent(event)
 	{
 		// is frame visible?
 		var visible = Flink.Frame.visible();
 
-		// show frame when pressed [CRTL]+[SPACE]
+		// show frame when pressed CTRL+SPACE
 		if (event.ctrlKey && event.keyCode===32) {
 			if (!visible) {
 				Flink.Frame.show();
 			}		
 		}
 
-		// hide frame whe pressed [ESCAPE]
+		// hide frame whe pressed ESCAPE
 		if (event.keyCode===27) {
 			if (visible) {
 				Flink.Frame.hide();
-			}						
+			}	
 		}
 	}
 
-	/*
+	/**
 	 * function assigned to "call" listeners.
 	 * element must provide "data-call" attribute.
 	 * module invoked must provide "call" method.
@@ -440,7 +457,7 @@ var Flink = (function(){
 		call(action, element);
 	};
 	
-	/*
+	/**
 	 * refresh  listeners for click on "call" actions
 	 */	
 	function listenClicks()
@@ -452,7 +469,7 @@ var Flink = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * log
 	 */
 	function log()
@@ -465,9 +482,10 @@ var Flink = (function(){
 		return LOG;
 	}
 
-	/*
+	/**
 	 * start
-	 * @param {object} args
+	 * 
+	 * @param object args (open, start...)
 	 */
 	function start(args)
 	{
@@ -494,7 +512,7 @@ var Flink = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * open frame 
 	 */
 	function open()
@@ -502,7 +520,7 @@ var Flink = (function(){
 		Flink.Frame.show();
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -525,17 +543,17 @@ var Flink = (function(){
 
 /** [../src/modules/core.Bookmark.js] **/
 
-/*
+/**
  * Bookmark
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars 
 	 */
 	var moduleKEY = "Bookmark";
 
-	/*
+	/**
 	 * call
 	 * allow use "method" and "args" if need "callable" actions
 	 * i.e. action = <module>::<method>::<args>
@@ -547,7 +565,7 @@ var Module = (function(){
 
 	}
 
-	/*
+	/**
 	 * events
 	 * @param {string} event Name or type of event
 	 * @param {object} element Usually a clicked element  
@@ -568,7 +586,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -585,15 +603,17 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.Browser.js] **/
 
-/*
+/**
  * Browser 
  */
 var Module = (function(){
 
 	var moduleKEY = "Browser", iframe, status;
 
-	/*
+	/**
 	 * call
+	 * @param string method
+	 * @param array args
 	 */
 	function call(method, args)
 	{	
@@ -605,8 +625,7 @@ var Module = (function(){
 	}
 
 
-
-	/*
+	/**
 	 * listener function
 	 */
 	function onload()
@@ -614,9 +633,10 @@ var Module = (function(){
 		status.style.display = "none";
 	}
 
-	/*
+	/**
 	 * load
 	 * if from server,  remote resources require CORS header ??? 
+	 * @param string url
 	 */
 	function load(url)
 	{
@@ -635,7 +655,7 @@ var Module = (function(){
 		iframe.src = url;
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -652,18 +672,18 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.Frame.js] **/
 
-/*
+/**
  * Frame
  */
 var Module = (function() {
 
 	var frameID, frame, firstOpen, namespace;
 
-	/*
+	/**
 	 * create element
-	 * @param {string} type of component.
-	 * @param {object} Flink.frame settings.
-	 * @return {object} dom element.
+	 * @param string type of component.
+	 * @param object Flink.frame settings.
+	 * @return object dom element.
 	 */
 	function createElement(settings)
 	{
@@ -750,8 +770,9 @@ var Module = (function() {
 		return element;
 	}
 
-	/* 
+	/** 
 	 * build frame window
+	 * @param object settings
 	 */
 	function build(settings)
 	{	
@@ -831,7 +852,7 @@ var Module = (function() {
 		return frameID;
 	}
 
-	/*
+	/**
 	 * check if frame is visible 
 	 */
 	function isVisible()
@@ -839,15 +860,15 @@ var Module = (function() {
 		return frame.style.display !== "none";
 	}
 
-	/*
+	/**
 	 * open|shows frame
 	 */
-	function show(show)
+	function show()
 	{
 		frame.style.display = "block";
 	}
 
-	/*
+	/**
 	 * close|hides frame
 	 */
 	function hide()
@@ -865,8 +886,11 @@ var Module = (function() {
 		}
 	}
 
-	/*
+	/**
 	 * set content of a component identified by its ID.
+	 * @param string key
+	 * @param string content
+	 * @param string mode
 	 */
 	function setContent (key, content, mode)
 	{
@@ -888,9 +912,10 @@ var Module = (function() {
 		elm.innerHTML = content;
 	}
 
-	/*
+	/**
 	 * compose breadcrumb links and show as prompt.
 	 * usually invoke from Modules.
+	 * @param object args
 	 */
 	function breadCrumb(args)
 	{
@@ -934,8 +959,9 @@ var Module = (function() {
 		Flink.listenClicks();
 	}	
 
-	/*
+	/**
 	 * returns a node element of frame 
+	 * @param string key
 	 */
 	function node(key)
 	{
@@ -943,7 +969,7 @@ var Module = (function() {
 		return document.getElementById(ID);
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -968,16 +994,16 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.Locale.js] **/
 
-/*
+/**
  * Locale 
  */
 var Module = (function(){
 
 	var moduleKEY = "Locale", loaded = {}, KEYS = {};
 
-
-	/*
+	/**
 	 * load
+	 * @param object keys
 	 */
 	function load(keys)
 	{
@@ -986,47 +1012,18 @@ var Module = (function(){
 		}
 	}
 
-	/*
-	 *
+	/**
+	 * update
 	 */
 	function update()
 	{
 
 	}
 
-	/*
-	 * load
-	 * @param {array|string} paths fullpaths including extension
-	 */
-	/*function load(paths, callback)
-	{
-		paths = paths || [];		
-		if (typeof paths==="string") {
-			paths = [paths];
-		}
-//console.log("locale.load.START", paths);
-		paths.forEach(function(path, index) {
-			loaded[path] = false;
-			Flink.loadJS({
-				path: path
-				, data: {path: path}
-				, callback: function(event) {
-					var target = event.target;
-					loaded[target.getAttribute("data-path")] = true;
-					for (var key in localeKEYS) {
-						KEYS[key] = localeKEYS[key];
-					}
-//console.log(KEYS);					
-					if (typeof callback==="function") callback(event);
-				}
-			})
-		});
-	}*/
-
-	/*
+	/**
 	 * say
-	 * @param {string} key.
-	 * @return {string} translation.
+	 * @param string key.
+	 * @return string translation.
 	 */
 	function say(key, mode)
 	{
@@ -1043,7 +1040,7 @@ var Module = (function(){
 		return text;
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -1060,20 +1057,20 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.Menu.js] **/
 
-/*
+/**
  * Menu
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars
 	 */
 	var moduleKEY = "Menu", config, container, elements;
 
-	/*
+	/**
 	 * call
-	 * @param {string} method
-	 * @param {array} args
+	 * @param string method
+	 * @param array args
 	 */
 	function call(method, args)
 	{		
@@ -1083,7 +1080,7 @@ var Module = (function(){
 		on("click");
 	}
 
-	/*
+	/**
 	 * refresh
 	 */
 	function refresh()
@@ -1095,7 +1092,7 @@ var Module = (function(){
 		toggle("hidden");
 	}
 
-	/*
+	/**
 	 * build
 	 */	
 	function build()
@@ -1146,9 +1143,9 @@ var Module = (function(){
 		})
 	}
 
-	/*
+	/**
 	 * toggle visibility
-	 * @param {string} visibility Ensure visibilite to this value.
+	 * @param string visibility Ensure visibilite to this value.
 	 */
 	function toggle(visibility)
 	{
@@ -1159,8 +1156,9 @@ var Module = (function(){
 		container.style.visibility = visibility;
 	}
 
-	/*
+	/**
 	 * addElement
+	 * @param object element
 	 */
 	function addElement(element)
 	{	
@@ -1168,9 +1166,10 @@ var Module = (function(){
 		refresh();
 	}
 
-	/*
+	/**
 	 * events
-	 * @param {string} event
+	 * @param string event
+	 * @param object element
 	 */
 	function on(event, element)
 	{
@@ -1183,7 +1182,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -1201,32 +1200,32 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.Panel.js] **/
 
-/*
+/**
  * Panel
  */
 var Module = (function(){
 
-	/*
+	/**
 	 * global module vars 
 	 */
 	var moduleKEY = "Panel";
 
-	/*
+	/**
 	 * call
 	 * allow use "method" and "args" if need "callable" actions
 	 * i.e. action = <module>::<method>::<args>
-	 * @param {string} method
-	 * @param {array} args
+	 * @param string method
+	 * @param array args
 	 */
 	function call(method, args)
 	{
 
 	}
 
-	/*
+	/**
 	 * events
-	 * @param {string} event Name or type of event
-	 * @param {object} element Usually a clicked element  
+	 * @param string event Name or type of event
+	 * @param object element Usually a clicked element
 	 */
 	function on(event, element)
 	{
@@ -1244,7 +1243,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -1261,7 +1260,7 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.Preferences.js] **/
 
-/*
+/**
  * Preferences
  */
 var Module = (function(){	
@@ -1269,7 +1268,7 @@ var Module = (function(){
 	var moduleKEY="Preferences", Say, Render, content, form
 	, defaults = {lang:"es-ES", start:""};
 
-	/*
+	/**
 	 * call
 	 */
 	function call()
@@ -1282,7 +1281,7 @@ var Module = (function(){
 		loadForm();
 	}
 
-	/* 
+	/**
 	 * load options and default values to the form.
 	 */
 	function loadForm()
@@ -1337,8 +1336,10 @@ var Module = (function(){
 		});
 	}
 
-	/*
+	/**
 	 * load options to a select|radio|checkbox element
+	 * @param object object
+	 * @param array values
 	 */
 	function loadSelect(object, values) {
 		var o;	
@@ -1356,7 +1357,7 @@ var Module = (function(){
 	}
 
 
-	/*
+	/**
 	 * load form with current preferences
 	 */
 	function loadValues()
@@ -1375,8 +1376,9 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * allow add values in settings.design.actions
+	 * @param string key
 	 */
 	function addAction(key)
 	{
@@ -1388,9 +1390,9 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * apply to context
-	 * @param {object} args
+	 * @param object args
 	 */
 	function apply(args)
 	{	
@@ -1410,7 +1412,7 @@ var Module = (function(){
 		}
 	}
 
-	/*
+	/**
 	 * read preferences form localStorage
 	 */
 	function read()
@@ -1426,8 +1428,9 @@ var Module = (function(){
 		return preferences;
 	}
 
-	/*
+	/**
 	 * save current context settings to localStorage
+	 * @param object preferences
 	 */
 	function save(preferences)
 	{
@@ -1438,8 +1441,9 @@ var Module = (function(){
 		Flink.tell(moduleKEY+".save");
 	}
 
-	/*
+	/**
 	 * on
+	 * @param string event
 	 */
 	function on(event)
 	{
@@ -1454,7 +1458,7 @@ var Module = (function(){
 		console.log("preferences.on >", event);
 	}
 
-	/*
+	/**
 	 * reset|delete
 	 */
 	function reset()
@@ -1463,7 +1467,7 @@ var Module = (function(){
 	}
 
 
-	/*
+	/**
 	 * export
 	 */
 	return {
@@ -1483,16 +1487,16 @@ Flink[Module.key] = Module;
 
 /** [../src/modules/core.View.js] **/
 
-/*
+/**
  * View utilities for render.
  */
 var Module = (function(){
 
 	var moduleKEY = "View", Say;
 
-	/*
+	/**
 	 * load (template )
-	 * @param {object} {<args.template>, [<args.object>]}
+	 * @param object {<args.template>, [<args.object>]}
 	 */
 	function load(args)
 	{
@@ -1510,11 +1514,11 @@ var Module = (function(){
 		})
 	}
 
-	/*
+	/**
 	 * Utility for render a object using a template.
-	 * @param {object} object The objecto to render.
-	 * @param {string} template The template for render object.
-	 * @return {string} Object rendered with template.
+	 * @param object object The objecto to render.
+	 * @param string template The template for render object.
+	 * @return string Object rendered with template.
  	 */
 	var renderObject = function (object, template) {
 		var key, mark, content = template;
@@ -1526,10 +1530,10 @@ var Module = (function(){
 		return content;
 	};
 
-	/*
+	/**
 	 * Utility for building templates row-header based on columns configuration.
-	 * @param {object} columns Columns configuration.
-	 * @return {object} Template object {
+	 * @param object columns Columns configuration.
+	 * @return object Template object {
 	 * 		headers:<template.header>
 	 * 		, row:<template-row>
 	 * }
@@ -1572,7 +1576,7 @@ var Module = (function(){
 		}
 	}	
 
-	/*
+	/**
 	 * export
 	 */
 	return {
